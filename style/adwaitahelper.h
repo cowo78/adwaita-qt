@@ -34,6 +34,11 @@
 #include <xcb/xcb.h>
 #endif
 
+#if defined(Q_OS_WIN) && !defined(_USE_MATH_DEFINES)
+// Bring in nonstandard math defines, i.e. M_PI
+// see https://msdn.microsoft.com/en-us/library/4hwaceh6.aspx
+#   define _USE_MATH_DEFINES
+#endif
 #include <cmath>
 
 namespace Adwaita
